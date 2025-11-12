@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .  # Constrói a imagem a partir do Dockerfile na pasta atual ('.')
+    container_name: recsys_api
+    ports:
+      # Mapeia a porta 8000 da máquina (host) 
+      # para a porta 8000 do container (app)
+      - "8000:8000"
+    env_file:
+      # Carrega todas as variáveis do arquivo .env 
+      # como variáveis de ambiente dentro do container
+      - .env
+    volumes:
+      - ./app:/app/app
